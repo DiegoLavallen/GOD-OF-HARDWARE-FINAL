@@ -1,28 +1,35 @@
-import React from 'react';
-import logo from '../Assets/logoKratos.png'
-import './NavBar.css';
-
-
-
-export default function NavBar(){
-  return (
-    <header>
-      <a href="#"><img src={logo} alt="" /></a>
-
-      <nav>
-        <ul className='nav_links'>
-          <li><a href='producto.jsx'>PRODUCTOS</a></li>
-          <li><a href="#">PC ARMADAS</a></li>
-          <li><a href="#">NOTEBOOKS</a></li>
-          <li><a href="#">AYUDA</a></li>
-        </ul>
-
-
-      </nav>
-      <a className='cta' href="#"><button>CONTACTO</button></a>
-    </header>
-
-  )
-
-
+import React from 'react'; 
+import logo from '../Assets/logoKratos.png' 
+import './NavBar.css'; 
+import CartWidget from './CartWidget' 
+ 
+ 
+ 
+ 
+export default function Navbar(){ 
+  return ( 
+    <div className='NavContainer'> 
+ 
+      <img src={logo} alt="" /> 
+ 
+      <nav> 
+        <ul className='nav_links'> 
+          <li><a href="#">HOME</a></li> 
+          <li><a href='#'>PRODUCTOS</a></li> 
+          <li><a href='#'>PCs ARMADAS</a></li> 
+          <li><a href='#'>NOTEBOOKS</a></li> 
+        </ul> 
+ 
+ 
+      </nav> 
+      <a href="#"><button>CONTACTO</button></a> 
+ 
+      <CartWidget/> 
+     
+ 
+    </div> 
+ 
+  ); 
+ 
+ 
 }
