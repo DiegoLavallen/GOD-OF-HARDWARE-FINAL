@@ -1,10 +1,38 @@
-import React from "react"; 
-import './ItemListContainer.css'; 
+import React from "react";
+import './ItemListContainer.css';
+import ItemCount from './ItemCount.js'
+import { useEffect } from "react";
+import { getProducts } from '../api/api';
+import { useState } from 'react';
+import ItemList from './ItemList';
 
-function ItemListContainer ({ greeting }){ 
-    return ( 
-        <p> {greeting}</p> 
-    ) 
-}; 
+function ItemListContainer(){
+    
+    const [products, setProducts] = useState([]);
 
-export default ItemListContainer; 
+    useEffect(()=>{
+        getProducts().then(function(products){
+            console.log(products);
+
+            setProducts(products)
+        });
+    }, []);
+
+    function onAddItem(itemCount){
+        alert(itemCount);
+    }
+
+    return (
+        <div>
+        
+          { products.length > 0 ? <ItemList products={products} /> : <p>Cargando...</p>}
+          <ItemCount stock={10} initial={0} onAdd={onAddItem} />
+
+        </div>
+    )
+};
+
+        
+
+
+export default ItemListContainer;
